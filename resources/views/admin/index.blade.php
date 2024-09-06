@@ -10,6 +10,7 @@
 
 @section('content')
 @if(session('success'))
+<!-- menampilkan pop up success -->
 <script>
     Swal.fire({
         title: "Berhasil",
@@ -18,7 +19,10 @@
     });
 </script>
 @endif
+
+
 <div class="row gap-3">
+
     <div class="col-sm-2">
         <div class="card">
             <div class="card-body">
@@ -27,6 +31,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-2">
         <div class="card">
             <div class="card-body">
@@ -35,6 +40,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-2">
         <div class="card">
             <div class="card-body">
@@ -43,6 +49,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-2">
         <div class="card">
             <div class="card-body">
@@ -52,6 +59,7 @@
         </div>
     </div>
 </div>
+<!-- button tambah data -->
 <a href="{{url('/create')}}" class="btn btn-primary">Tambah Data</a>
 <table class="table" id="pegawai">
     <thead>
@@ -93,6 +101,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
 <script>
+    // function untuk konfirmasi hapus data
     function confirmDelete(id) {
         Swal.fire({
             title: 'Apakah Anda yakin?',

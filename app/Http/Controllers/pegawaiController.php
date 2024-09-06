@@ -20,6 +20,8 @@ class pegawaiController extends Controller
 
         return view('admin.pegawai.update', compact('pegawai'));
     }
+
+    //buat data baru
     public function store(Request $request)
     {
         $pegawai = new Pegawai;
@@ -47,6 +49,8 @@ class pegawaiController extends Controller
         // Redirect kembali dengan pesan sukses
         return redirect('/home')->with('success', 'Data pegawai berhasil disimpan.');
     }
+
+    //sava data hasil update
     public function update_save(Request $request)
     {
         $pegawai = Pegawai::find($request->id);
@@ -75,6 +79,7 @@ class pegawaiController extends Controller
         return redirect('/home')->with('success', 'Data pegawai berhasil disimpan.');
     }
 
+    //untuk hapus data
     public function delete($id)
     {
         $pegawai = Pegawai::find($id);
