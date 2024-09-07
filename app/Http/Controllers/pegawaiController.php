@@ -87,4 +87,14 @@ class pegawaiController extends Controller
 
         return redirect('/home')->with('success', 'Data pegawai berhasil dihapus.');
     }
+
+    public function getDetail($id)
+    {
+        $pegawai = Pegawai::find($id);
+        if (!$pegawai) {
+            return redirect('/home')->with('error', 'id tidak ditemukan');
+        }
+
+        return view('admin.pegawai.detail', compact('pegawai'));
+    }
 }

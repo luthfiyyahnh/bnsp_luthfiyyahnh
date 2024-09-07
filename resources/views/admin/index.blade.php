@@ -20,6 +20,17 @@
 </script>
 @endif
 
+@if(session('error'))
+<!-- menampilkan pop up success -->
+<script>
+    Swal.fire({
+        title: "Error",
+        text: "{{session('error')}}",
+        icon: "error"
+    });
+</script>
+@endif
+
 
 <div class="row gap-3">
 
@@ -79,6 +90,7 @@
             <td>{{$p->divisi}}</td>
             <td>{{$p->tanggal_masuk}}</td>
             <td>
+                <a href="{{url('/detail')}}/{{$p->id}}" class="btn btn-primary btn-sm">detail</a>
                 <a href="{{url('/update')}}/{{$p->id}}" class="btn btn-warning btn-sm">edit</a>
                 <form id="delete-form-{{ $p->id }}" action="{{ route('pegawai.destroy', $p->id) }}" method="POST" style="display:inline;">
                     @csrf
